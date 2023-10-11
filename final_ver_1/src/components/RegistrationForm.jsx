@@ -1,7 +1,8 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-const RegistrationForm = () => {
+const RegistrationForm = ({ onUserRegistration }) => {
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [email, setEmail] = useState('');
@@ -26,6 +27,9 @@ const RegistrationForm = () => {
     setSurname('');
     setEmail('');
     setAge('');
+
+    // Call the callback function to inform the parent component of the new user
+    onUserRegistration(userData);
   };
 
   // A hypothetical function to register the user
@@ -78,6 +82,10 @@ const RegistrationForm = () => {
       <button type="submit">Register</button>
     </form>
   );
+};
+
+RegistrationForm.propTypes = {
+  onUserRegistration: PropTypes.func.isRequired,
 };
 
 export default RegistrationForm;
