@@ -21,6 +21,22 @@ async function fetchUsers() {
 const UserList = () => {
   const [users, setUsers] = useState([]);
 
+  const handleDeleteUser = (userId) => {
+    // Send a DELETE request to your server to delete the user
+    fetch(`http://localhost:3000/users/${userId}`, {
+      method: 'DELETE',
+    })
+      .then((response) => {
+        if (response.ok) {
+          // If the deletion is successful, remove the user from the state
+          setUsers((prevUsers) => prevUsers.filter((user) => user.id !== userId));
+        }
+      })
+      .catch((error) => {
+        console.error('Error deleting user:', error);
+      });
+  };
+
   useEffect(() => {
     // Fetch users when the component mounts
     fetchUsers()
@@ -55,7 +71,7 @@ const UserList = () => {
             <td>{user.age}</td>
             <td>
               <button type="button">Edit</button>
-              <button type="button">Delete</button>
+              <button type="button" onClick={() => handleDeleteUser(user.id)}>Delete</button>
             </td>
           </tr>
         ))}
@@ -65,3 +81,4 @@ const UserList = () => {
 };
 
 export default UserList;
+

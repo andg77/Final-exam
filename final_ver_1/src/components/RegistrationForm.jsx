@@ -79,7 +79,8 @@ const RegistrationForm = ({ onUserRegistration }) => {
         value={age}
         onChange={(event) => setAge(event.target.value)}
       />
-      <button type="submit">Register</button>
+      <button type="submit" >Register</button>
+      {/* <button type="submit" onClick={() => handleDeleteUser(user.id)} >Register</button> */}
     </form>
   );
 };
