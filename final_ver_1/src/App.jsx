@@ -2,6 +2,7 @@
 import React, { useState } from 'react'; // Import useState from react
 import RegistrationForm from './components/RegistrationForm';
 import UserList from 'D:\\Programavimas\\gitHub\\Final_ver_1.1\\final_ver_1\\src\\components\\UserlList.jsx';
+import 'D:/Programavimas/gitHub/Final_ver_1.1/final_ver_1/src/App.css'; 
 
 // App.js
 
@@ -17,7 +18,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>User Registration App</h1>
+      <h1>Registracijos App</h1>
       <RegistrationForm onUserRegistration={handleUserRegistration} />
       <UserList users={users} />
     </div>

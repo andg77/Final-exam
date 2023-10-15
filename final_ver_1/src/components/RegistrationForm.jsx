@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import './RegistrationForm.css'; // Import the CSS file
 
 const RegistrationForm = ({ onUserRegistration }) => {
   const [name, setName] = useState('');
@@ -55,6 +56,7 @@ const RegistrationForm = ({ onUserRegistration }) => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <div className="registration-form"></div>
       <input
         type="text"
         placeholder="Name"

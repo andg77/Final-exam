@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
 import { Table } from 'react-bootstrap';
+import './user-list.css'; // Import the CSS file
 
 async function fetchUsers() {
   try {
@@ -52,7 +53,7 @@ const UserList = () => {
   }, []); // Empty dependency array ensures this effect runs only once when the component mounts
 
   return (
-    <Table striped bordered hover>
+    <Table className="user-list" striped bordered hover>
       <thead>
         <tr>
           <th>Name</th>
